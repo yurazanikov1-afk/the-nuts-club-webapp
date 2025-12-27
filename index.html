@@ -8,62 +8,76 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <div class="app">
 
     <!-- MAIN -->
     <div id="mainScreen">
         <h1>🥜 The NUTS Club</h1>
-        <p class="subtitle">Private call verification</p>
+        <p class="subtitle">Experimental / beta call check</p>
 
-        <button onclick="openCheck()">🔍 Check call</button>
-        <button onclick="openHistory()">🧾 History</button>
-        <button onclick="alert('The NUTS Club\nБалашиха')">ℹ️ About</button>
+        <div class="card">
+            <button onclick="openCheck()">🔍 Проверить звонок</button>
+            <button onclick="openHistory()">🧾 История</button>
+            <button onclick="openSchedule()">📅 Расписание игр</button>
+            <button onclick="openAbout()">ℹ️ О проекте</button>
+        </div>
 
         <p class="address">📍 Балашиха</p>
     </div>
 
     <!-- CHECK -->
     <div id="checkScreen" class="hidden">
-        <h2>Check call</h2>
+        <h2>Проверка звонка</h2>
 
         <input id="phone" placeholder="+7XXXXXXXXXX">
 
         <div class="types">
-            <button onclick="setType(this)">Incoming</button>
-            <button onclick="setType(this)">Outgoing</button>
-            <button onclick="setType(this)">Suspicious</button>
+            <button onclick="setType(this)">Входящий</button>
+            <button onclick="setType(this)">Исходящий</button>
+            <button onclick="setType(this)">Подозрительный</button>
         </div>
 
-        <button class="primary" onclick="checkCall()">Check</button>
-        <button class="secondary" onclick="back()">← Back</button>
+        <button class="primary" onclick="checkCall()">Проверить</button>
+        <button class="secondary" onclick="back()">← Назад</button>
     </div>
-       
+
     <!-- LOADING -->
     <div id="loadingScreen" class="hidden">
-        <h2>Checking…</h2>
-        <p class="subtitle">Analyzing call data</p>
+        <h2>Проверка…</h2>
+        <p class="subtitle">Анализ данных</p>
         <div class="loader"></div>
     </div>
 
     <!-- RESULT -->
-<div id="resultScreen" class="hidden">
-    <div class="card card-result">
-        <div id="resultIcon" class="result-icon"></div>
-        <h2 id="resultTitle"></h2>
-        <p id="resultNumber"></p>
-        <p id="resultDesc" class="subtitle"></p>
+    <div id="resultScreen" class="hidden">
+        <div class="card card-result">
+            <div id="resultIcon" class="result-icon"></div>
+            <h2 id="resultTitle"></h2>
+            <p id="resultNumber"></p>
+            <p id="resultDesc" class="subtitle"></p>
+        </div>
+        <button class="secondary" onclick="back()">← Назад</button>
     </div>
-
-    <button class="secondary" onclick="back()">← Back</button>
-</div>
-
 
     <!-- HISTORY -->
     <div id="historyScreen" class="hidden">
-        <h2>History</h2>
-        <p style="color:#777;margin-top:10px">No history yet</p>
-        <button class="secondary" onclick="back()">← Back</button>
+        <h2>История проверок</h2>
+        <div id="historyList"></div>
+        <button class="secondary" onclick="back()">← Назад</button>
+    </div>
+
+    <!-- SCHEDULE -->
+    <div id="scheduleScreen" class="hidden">
+        <h2>Расписание игр</h2>
+        <div class="card">
+            <p><b>04.01</b> — Deep Stack — 15:00</p>
+            <p><b>09.01</b> — Bounty — 17:00</p>
+            <p><b>14.01</b> — Texas Hold’em — 19:00</p>
+            <p><b>17.01</b> — Deep Stack — 15:00</p>
+            <p><b>20.01</b> — Texas Hold’em — 19:00</p>
+            <p><b>24.01</b> — Bounty — 17:00</p>
+        </div>
+        <button class="secondary" onclick="back()">← Назад</button>
     </div>
 
 </div>
