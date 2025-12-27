@@ -38,6 +38,23 @@
         <button class="primary" onclick="checkCall()">Check</button>
         <button class="secondary" onclick="back()">← Back</button>
     </div>
+       
+    <!-- LOADING -->
+    <div id="loadingScreen" class="hidden">
+        <h2>Checking…</h2>
+        <p class="subtitle">Analyzing call data</p>
+        <div class="loader"></div>
+    </div>
+
+    <!-- RESULT -->
+    <div id="resultScreen" class="hidden">
+        <h2 id="resultTitle"></h2>
+        <p id="resultNumber"></p>
+        <p id="resultDesc" class="subtitle"></p>
+
+        <button class="secondary" onclick="back()">← Back</button>
+    </div>
+
 
     <!-- HISTORY -->
     <div id="historyScreen" class="hidden">
