@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>The NUTS Club</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+    <!-- MAIN -->
+    <div id="mainScreen">
+        <h1>🥜 The NUTS Club</h1>
+        <p class="subtitle">Private call verification</p>
+
+        <button onclick="openCheck()">🔍 Check call</button>
+        <button onclick="openHistory()">🧾 History</button>
+        <button onclick="alert('The NUTS Club\nБалашиха')">ℹ️ About</button>
+
+        <p class="address">📍 Балашиха</p>
+    </div>
+
+    <!-- CHECK -->
+    <div id="checkScreen" class="hidden">
+        <h2>Check call</h2>
+
+        <input id="phone" placeholder="+7XXXXXXXXXX">
+
+        <div class="types">
+            <button onclick="setType(this)">Incoming</button>
+            <button onclick="setType(this)">Outgoing</button>
+            <button onclick="setType(this)">Suspicious</button>
+        </div>
+
+        <button class="primary" onclick="checkCall()">Check</button>
+        <button class="secondary" onclick="back()">← Back</button>
+    </div>
+
+    <!-- RESULT -->
+    <div id="resultScreen" class="hidden">
+        <h2 id="resultTitle"></h2>
+        <p id="resultNumber"></p>
+        <p id="resultDesc"></p>
+
+        <button onclick="back()">← Back</button>
+    </div>
+
+    <!-- HISTORY -->
+    <div id="historyScreen" class="hidden">
+        <h2>History</h2>
+
+        <div id="historyList"></div>
+
+        <button class="secondary" onclick="back()">← Back</button>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
