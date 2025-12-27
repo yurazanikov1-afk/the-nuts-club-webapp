@@ -42,17 +42,37 @@ function checkCall() {
     show("loadingScreen");
 
     setTimeout(() => {
-        const results = [
-            { title: "✅ VERIFIED", desc: "Number is safe" },
-            { title: "⚠️ SUSPICIOUS", desc: "Suspicious activity detected" },
-            { title: "❌ UNKNOWN", desc: "No data available" }
-        ];
+       const results = [
+    {
+        icon: "✅",
+        title: "VERIFIED",
+        desc: "Number is safe",
+        class: "status-ok"
+    },
+    {
+        icon: "⚠️",
+        title: "SUSPICIOUS",
+        desc: "Suspicious activity detected",
+        class: "status-warn"
+    },
+    {
+        icon: "❌",
+        title: "UNKNOWN",
+        desc: "No data available",
+        class: "status-bad"
+    }
+];
 
         const res = results[Math.floor(Math.random() * results.length)];
 
-        document.getElementById("resultTitle").innerText = res.title;
-        document.getElementById("resultNumber").innerText = phone;
-        document.getElementById("resultDesc").innerText = res.desc;
+        document.getElementById("resultIcon").innerText = res.icon;
+
+const titleEl = document.getElementById("resultTitle");
+titleEl.innerText = res.title;
+titleEl.className = res.class;
+
+document.getElementById("resultNumber").innerText = phone;
+document.getElementById("resultDesc").innerText = res.desc;
 
         show("resultScreen");
     }, 1500);
